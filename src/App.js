@@ -1,12 +1,23 @@
 import React from "react";
 import "./App.css";
 
+import Search from "./Search";
+import UnitSelector from "./UnitSelector";
+import CurrentCityWeather from "./CurrentWeather";
+import FiveDayForecast from "./FiveDayForecast";
+import Footer from "./Footer";
+
 export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Hello World</h1>
-      </header>
+      <Search />
+      <UnitSelector />
+      <hr />
+      <CurrentCityWeather />
+      <hr />
+      <FiveDayForecast />
+      <hr />
+      <Footer />
     </div>
   );
 }
