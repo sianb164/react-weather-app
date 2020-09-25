@@ -1,13 +1,15 @@
-.WeatherInfo .current-city,
-.current-weather {
+.WeatherInfo .current-city {
   font-size: 50px;
   font-weight: bold;
   margin-bottom: 0;
   padding-left: 5px;
+  margin-top: 5px;
 }
 
 .WeatherInfo .current-weather {
   font-size: 70px;
+  font-weight: bold;
+  max-height: 150px;
 }
 
 .WeatherInfo .current-date {
@@ -15,6 +17,13 @@
   margin-top: 20px;
   margin-bottom: 20px;
   padding-left: 5px;
+}
+
+.WeatherInfo .current-temp {
+  display: inline;
+  position: absolute;
+  margin-top: 15px;
+  padding-left: 25px;
 }
 
 .WeatherInfo .current-description {
