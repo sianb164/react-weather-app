@@ -1,7 +1,8 @@
 import React from "react";
-import "./CurrentWeather.css";
+import axios from "axios";
+import "./Weather.css";
 
-export default function CurrentCityWeather() {
+export default function Weather() {
   let currentWeatherData = {
     city: "Oxford",
     date: "Saturday 12 September 12:00",
@@ -14,7 +15,7 @@ export default function CurrentCityWeather() {
   };
 
   return (
-    <div className="CurrentCityWeather">
+    <div className="Weather">
       <div className="row">
         <div className="col-8">
           <h1 className="current-city">{currentWeatherData.city}</h1>

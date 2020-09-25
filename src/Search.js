@@ -1,6 +1,5 @@
 import React from "react";
 import "./Search.css";
-import "bootstrap/dist/css/bootstrap.css";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Search() {
   return (
     <div className="Search">
-      <form className="input-group mb-3" id="change-city-form">
+      <form className="input-group mb-3">
         <input
           type="text"
           className="form-control"

@@ -3,7 +3,7 @@ import "./App.css";
 
 import Search from "./Search";
 import UnitSelector from "./UnitSelector";
-import CurrentCityWeather from "./CurrentWeather";
+import Weather from "./Weather";
 import FiveDayForecast from "./FiveDayForecast";
 import Footer from "./Footer";
 
@@ -13,7 +13,7 @@ export default function App() {
       <Search />
       <UnitSelector />
       <hr />
-      <CurrentCityWeather />
+      <Weather />
       <hr />
       <FiveDayForecast />
       <hr />

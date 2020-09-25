@@ -10,7 +10,7 @@ export default function FiveDayForecast() {
           <img
             src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
             alt=""
-            classNameName="forecast-image"
+            className="forecast-image"
           />
           <div className="weather-forecast-temperature">
             <strong>25°</strong> 18°
@@ -21,7 +21,7 @@ export default function FiveDayForecast() {
           <img
             src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
             alt=""
-            classNameName="forecast-image"
+            className="forecast-image"
           />
           <div className="weather-forecast-temperature">
             <strong>25°</strong> 18°
@@ -32,7 +32,7 @@ export default function FiveDayForecast() {
           <img
             src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
             alt=""
-            classNameName="forecast-image"
+            className="forecast-image"
           />
           <div className="weather-forecast-temperature">
             <strong>25°</strong> 18°
@@ -43,7 +43,7 @@ export default function FiveDayForecast() {
           <img
             src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
             alt=""
-            classNameName="forecast-image"
+            className="forecast-image"
           />
           <div className="weather-forecast-temperature">
             <strong>25°</strong> 18°
@@ -54,7 +54,7 @@ export default function FiveDayForecast() {
           <img
             src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
             alt=""
-            classNameName="forecast-image"
+            className="forecast-image"
           />
           <div className="weather-forecast-temperature">
             <strong>25°</strong> 18°
@@ -65,7 +65,7 @@ export default function FiveDayForecast() {
           <img
             src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
             alt=""
-            classNameName="forecast-image"
+            className="forecast-image"
           />
           <div className="weather-forecast-temperature">
             <strong>25°</strong> 18°
