@@ -1,55 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Weather.css";
+import WeatherInfo from "./WeatherInfo";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function Weather() {
-  let currentWeatherData = {
-    city: "Oxford",
-    date: "Saturday 12 September 12:00",
-    description: "Clear",
-    imgUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
-    temperature: 21,
-    humidity: 5,
-    wind: 11,
-    maximum: 25,
-  };
+export default function Weather(props) {
+  let [weatherData, setWeatherData] = useState({ ready: false });
+  let [city, setCity] = useState(props.defaultCity);
 
-  return (
-    <div className="Weather">
-      <div className="row">
-        <div className="col-8">
-          <h1 className="current-city">{currentWeatherData.city}</h1>
-          <small>Last updated:</small>
-          <h2>
-            <span className="current-date">{currentWeatherData.date}</span>
-          </h2>
-          <p className="current-weather">
-            <img
-              src={currentWeatherData.imgUrl}
-              alt={currentWeatherData.description}
-            />
-            <span> {currentWeatherData.temperature}</span>°
-            <span className="current-temp-unit">C</span>
-          </p>
-          <p className="current-description">
-            {currentWeatherData.description}
-          </p>
+  function handleResponse(response) {
+    setWeatherData({
+      ready: true,
+      temperature: Math.round(response.data.main.temp),
+      humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
+      wind: response.data.wind.speed,
+      city: response.data.name,
+      maximum: Math.round(response.data.main.temp_max),
+    });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "672723bd53f0c644c902cc3d0f7bbe45";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="Weather">
+        <form className="input-group mb-3" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Change city here..."
+            autoComplete="off"
+            onChange={handleCityChange}
+          />
+          <div className="input-group-append">
+            <button
+              className="btn btn-secondary change-city-button button-icon"
+              type="submit"
+            >
+              <FontAwesomeIcon icon={faSearch} />
+            </button>
+          </div>
+        </form>
+        <div className="UnitSelector">
+          <div className="unit-buttons">
+            <button className="celsius-button active">Celsius</button>
+            <button className="fahrenheit-button secondary">Fahrenheit</button>
+          </div>
         </div>
-        <div className="col-4 hum-wind-max">
-          <h3 className="humidity">
-            <strong>Humidity:</strong>{" "}
-            <span>{currentWeatherData.humidity}</span>%
-          </h3>
-          <h3 className="wind">
-            <strong>Wind:</strong> <span>{currentWeatherData.wind}</span>
-            <span>mph</span>
-          </h3>
-          <h3 className="maximum">
-            <strong>Maximum: </strong>
-            <span>{currentWeatherData.maximum}</span>°
-            <span className="current-temp-unit">C</span>
-          </h3>
-        </div>
+        <WeatherInfo data={weatherData} />
       </div>
-    </div>
-  );
+    );
+  } else {
+    search();
+    return "Loading...";
+  }
 }

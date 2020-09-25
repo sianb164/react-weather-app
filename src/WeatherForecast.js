@@ -1,9 +1,9 @@
 import React from "react";
-import "./FiveDayForecast.css";
+import "./WeatherForecast.css";
 
-export default function FiveDayForecast() {
+export default function WeatherForecast() {
   return (
-    <div className="FiveDayForecast">
+    <div className="WeatherForecast">
       <div className="row">
         <div className="col-2">
           <div className="forecast-time">12:00</div>
