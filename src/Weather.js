@@ -23,6 +23,7 @@ export default function Weather(props) {
       maximum: Math.round(response.data.main.temp_max),
       icon: response.data.weather[0].icon,
       description: response.data.weather[0].description,
+      temp_max: Math.round(response.data.main.temp_max),
     });
   }
 

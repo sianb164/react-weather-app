@@ -3,6 +3,7 @@ import "./WeatherInfo.css";
 import WeatherIcon from "./WeatherIcon";
 import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
+import WeatherTemperatureMax from "./WeatherTemperatureMax";
 
 export default function WeatherInfo(props) {
   return (
@@ -35,8 +36,12 @@ export default function WeatherInfo(props) {
           </h3>
           <h3 className="maximum">
             <strong>Maximum: </strong>
-            <span>{props.data.maximum}</span>°
-            <span className="current-temp-unit">C</span>
+            <span>
+              <WeatherTemperatureMax
+                temperature={props.data.temp_max}
+                temperatureUnit={props.temperatureUnit}
+              />
+            </span>
           </h3>
         </div>
       </div>

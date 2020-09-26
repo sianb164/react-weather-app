@@ -10,7 +10,6 @@ export default function WeatherForecastPreview(props) {
     }
     return `${hours}:00`;
   }
-  // {props.temperatureUnit === "celsius" ? "active" : "";}
 
   let maxTemp = Math.round(props.data.main.temp_max);
   let minTemp = Math.round(props.data.main.temp_min);
@@ -25,7 +24,7 @@ export default function WeatherForecastPreview(props) {
       <div className="forecast-time">{hours()}</div>
       <WeatherIcon icon={props.data.weather[0].icon} />
       <div className="weather-forecast-temperature">
-        <strong>{maxTemp}°</strong> / {minTemp}°
+        {minTemp}° / <strong>{maxTemp}</strong>°
       </div>
     </div>
   );
