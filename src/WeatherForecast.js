@@ -1,7 +1,8 @@
 import React from "react";
 import "./WeatherForecast.css";
 
-export default function WeatherForecast() {
+export default function WeatherForecast(props) {
+  // https://api.openweathermap.org/data/2.5/forecast?q=oxford&appid=672723bd53f0c644c902cc3d0f7bbe45&units=metric
   return (
     <div className="WeatherForecast">
       <div className="row">

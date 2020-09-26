@@ -4,10 +4,13 @@ import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import UnitSelector from "./UnitSelector";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
   let [weatherData, setWeatherData] = useState({ ready: false });
   let [city, setCity] = useState(props.defaultCity);
+  let [temperatureUnit, setTemperatureUnit] = useState("celsius");
 
   function handleResponse(response) {
     setWeatherData({
@@ -58,13 +61,13 @@ export default function Weather(props) {
             </button>
           </div>
         </form>
-        <div className="UnitSelector">
-          <div className="unit-buttons">
-            <button className="celsius-button active">Celsius</button>
-            <button className="fahrenheit-button secondary">Fahrenheit</button>
-          </div>
-        </div>
-        <WeatherInfo data={weatherData} />
+        <UnitSelector
+          unit={temperatureUnit}
+          onTemperatureUnitChange={setTemperatureUnit}
+        />
+        <WeatherInfo data={weatherData} temperatureUnit={temperatureUnit} />
+        <hr />
+        <WeatherForecast city={weatherData.city} />
       </div>
     );
   } else {
