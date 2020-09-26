@@ -1,11 +1,12 @@
 .UnitSelector .unit-buttons .unit-button {
   font-size: 30px;
   margin-top: 20px;
-  width: 320px;
   margin-bottom: 20px;
+  overflow: hidden;
   background-color: #f3f4f6;
   border: 3px solid #f3f4f6;
   color: #545866;
+  width: 50%;
 }
 
 .UnitSelector .unit-buttons .unit-button.active {
