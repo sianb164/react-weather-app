@@ -1,11 +1,15 @@
 import React from "react";
+import { faMoon } from "@fortawesome/free-regular-svg-icons";
+import { faCloudMoon } from "@fortawesome/free-solid-svg-icons";
+import { faSmog } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./WeatherIcon.css";
 
 const weatherIconMap = {
   "01d": "CLEAR",
-  "01n": "CLEAR",
+  "01n": "CLEAR_NIGHT",
   "02d": "SUN_CLOUD",
-  "02n": "SUN_CLOUD",
+  "02n": "MOON_CLOUD",
   "03d": "CLOUDS",
   "03n": "CLOUDS",
   "04d": "CLOUDS",
@@ -18,8 +22,8 @@ const weatherIconMap = {
   "11n": "THUNDER",
   "13d": "SNOW",
   "13n": "SNOW",
-  "50d": "CLOUDS",
-  "50n": "CLOUDS",
+  "50d": "FOG",
+  "50n": "FOG",
 };
 
 export default function WeatherIcon(props) {
@@ -86,7 +90,6 @@ export default function WeatherIcon(props) {
     );
   }
   const icon = weatherIconMap[props.icon];
-  console.log(props.icon, icon);
 
   if (icon === "CLEAR") {
     return renderSunny();
@@ -100,5 +103,11 @@ export default function WeatherIcon(props) {
     return renderFlurries();
   } else if (icon === "SUN_CLOUD") {
     return renderSunCloud();
+  } else if (icon === "CLEAR_NIGHT") {
+    return <FontAwesomeIcon icon={faMoon} className="fontAwesomeIcon" />;
+  } else if (icon === "MOON_CLOUD") {
+    return <FontAwesomeIcon icon={faCloudMoon} className="fontAwesomeIcon" />;
+  } else if (icon === "FOG") {
+    return <FontAwesomeIcon icon={faSmog} className="fontAwesomeIcon" />;
   }
 }

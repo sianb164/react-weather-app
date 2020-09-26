@@ -1,78 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./WeatherForecast.css";
+import WeatherForecastPreview from "./WeatherForecastPreview";
 
 export default function WeatherForecast(props) {
-  // https://api.openweathermap.org/data/2.5/forecast?q=oxford&appid=672723bd53f0c644c902cc3d0f7bbe45&units=metric
-  return (
-    <div className="WeatherForecast">
-      <div className="row">
-        <div className="col-2">
-          <div className="forecast-time">12:00</div>
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt=""
-            className="forecast-image"
-          />
-          <div className="weather-forecast-temperature">
-            <strong>25°</strong> 18°
-          </div>
-        </div>
-        <div className="col-2">
-          <div className="forecast-time">12:00</div>
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt=""
-            className="forecast-image"
-          />
-          <div className="weather-forecast-temperature">
-            <strong>25°</strong> 18°
-          </div>
-        </div>
-        <div className="col-2">
-          <div className="forecast-time">12:00</div>
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt=""
-            className="forecast-image"
-          />
-          <div className="weather-forecast-temperature">
-            <strong>25°</strong> 18°
-          </div>
-        </div>
-        <div className="col-2">
-          <div className="forecast-time">12:00</div>
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt=""
-            className="forecast-image"
-          />
-          <div className="weather-forecast-temperature">
-            <strong>25°</strong> 18°
-          </div>
-        </div>
-        <div className="col-2">
-          <div className="forecast-time">12:00</div>
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt=""
-            className="forecast-image"
-          />
-          <div className="weather-forecast-temperature">
-            <strong>25°</strong> 18°
-          </div>
-        </div>
-        <div className="col-2">
-          <div className="forecast-time">12:00</div>
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt=""
-            className="forecast-image"
-          />
-          <div className="weather-forecast-temperature">
-            <strong>25°</strong> 18°
-          </div>
-        </div>
+  const [loaded, setLoaded] = useState(false);
+  const [forecast, setForecast] = useState(null);
+
+  function handleForecastResponse(response) {
+    setForecast(response.data);
+    setLoaded(true);
+  }
+
+  if (loaded && props.city === forecast.city.name) {
+    return (
+      <div className="WeatherForecast row">
+        <WeatherForecastPreview data={forecast.list[0]} />
+        <WeatherForecastPreview data={forecast.list[1]} />
+        <WeatherForecastPreview data={forecast.list[2]} />
+        <WeatherForecastPreview data={forecast.list[3]} />
+        <WeatherForecastPreview data={forecast.list[4]} />
+        <WeatherForecastPreview data={forecast.list[5]} />
       </div>
-    </div>
-  );
+    );
+  } else {
+    const apiKey = "6f6faa82ca60d3e65b0d7c9d697a7a6f";
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleForecastResponse);
+    return null;
+  }
 }

@@ -16,7 +16,14 @@
   text-align: center;
 }
 
-.WeatherForecast .forecast-image {
+.WeatherForecast .icon {
+  font-size: 8px;
   display: block;
-  margin: 0 auto;
+  margin: 2px;
+}
+
+.WeatherForecast .fontAwesomeIcon {
+  margin: 0;
+  font-size: 50px;
+  height: 80px;
 }
