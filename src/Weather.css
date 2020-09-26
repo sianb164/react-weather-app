@@ -1,5 +1,15 @@
+.Weather .input-group {
+  padding: 0;
+}
+
 .Weather .form-control {
   font-size: 30px;
+}
+
+@media (max-width: 575.98px) {
+  .Weather .form-control {
+    font-size: 20px;
+  }
 }
 
 .Weather .change-city-button,
@@ -9,6 +19,14 @@
   border: solid 1px rgb(206, 212, 218);
   height: 59px;
   background-color: #989aa3;
+}
+
+@media (max-width: 575.98px) {
+  .Weather .change-city-button,
+  .current-location-button {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 .Weather .change-city-button:hover,

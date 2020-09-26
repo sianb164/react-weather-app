@@ -17,7 +17,7 @@ export default function Weather(props) {
       ready: true,
       temperature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
-      date: new Date(response.data.dt * 1000),
+      date: new Date((response.data.dt + response.data.timezone) * 1000),
       wind: response.data.wind.speed,
       city: response.data.name,
       maximum: Math.round(response.data.main.temp_max),
@@ -44,23 +44,25 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <form className="input-group mb-3" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Change city here..."
-            autoComplete="off"
-            onChange={handleCityChange}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn btn-secondary change-city-button button-icon"
-              type="submit"
-            >
-              <FontAwesomeIcon icon={faSearch} />
-            </button>
-          </div>
-        </form>
+        <div className="row">
+          <form className="input-group mb-3 col-sm" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Change city here..."
+              autoComplete="off"
+              onChange={handleCityChange}
+            />
+            <div className="input-group-append">
+              <button
+                className="btn btn-secondary change-city-button button-icon"
+                type="submit"
+              >
+                <FontAwesomeIcon icon={faSearch} />
+              </button>
+            </div>
+          </form>
+        </div>
         <UnitSelector
           unit={temperatureUnit}
           onTemperatureUnitChange={setTemperatureUnit}

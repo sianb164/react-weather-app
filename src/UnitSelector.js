@@ -16,15 +16,17 @@ export default function UnitSelector(props) {
   }
   return (
     <div className="UnitSelector">
-      <div className="unit-buttons">
+      <div className="unit-buttons row">
         <button
-          className={`unit-button ${props.unit === "celsius" ? "active" : ""}`}
+          className={`unit-button col-sm-6 ${
+            props.unit === "celsius" ? "active" : ""
+          }`}
           onClick={handleClickCelsius}
         >
           Celsius
         </button>
         <button
-          className={`unit-button ${
+          className={`unit-button col-sm-6 ${
             props.unit === "fahrenheit" ? "active" : ""
           }`}
           onClick={handleClickFahrenheit}
