@@ -68,7 +68,10 @@ export default function Weather(props) {
         <hr />
         <WeatherInfo data={weatherData} temperatureUnit={temperatureUnit} />
         <hr />
-        <WeatherForecast city={weatherData.city} />
+        <WeatherForecast
+          city={weatherData.city}
+          temperatureUnit={temperatureUnit}
+        />
       </div>
     );
   } else {

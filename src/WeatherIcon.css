@@ -4,7 +4,7 @@
   width: 9em;
   height: 10em;
   font-size: 15px; /* control icon size here */
-  color: #030405;
+  color: #2d435a;
 }
 
 .cloud {
@@ -275,5 +275,5 @@
   font-size: 100px;
   height: 150px;
   margin-left: 10px;
-  color: #030405;
+  color: #fff;
 }
