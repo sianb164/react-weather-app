@@ -11,7 +11,14 @@ export default function Footer() {
       >
         Open-source code
       </a>
-      &nbsp;by Siân Burgess
+      &nbsp;by&nbsp;
+      <a
+        href="https://www.linkedin.com/in/sian-burgess-08733b90/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Siân Burgess
+      </a>
     </footer>
   );
 }
